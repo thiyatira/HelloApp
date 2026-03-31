@@ -1,19 +1,16 @@
 public class HelloApp {
     public static void main(String[] args) {
-        // default name
         String names = "World";
-        // check if a name is provided
         if (args.length > 0) {
             StringBuilder nameBuilder = new StringBuilder();
-            boolean first = true;
+            // Append all names with ,
             for (String name : args) {
-                if (!first) {
-                    nameBuilder.append(", ");
-                }
-                nameBuilder.append(name);
-                first = false;
+                nameBuilder.append(name).append(", ");
             }
-            names = nameBuilder.toString();
+            // Remove last ,
+            if (nameBuilder.length() > 0) {
+                names = nameBuilder.substring(0, nameBuilder.length() - 2);
+            }
         }
         System.out.println("Hello, " + names + "!");
     }
